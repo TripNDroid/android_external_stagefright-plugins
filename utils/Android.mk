@@ -12,7 +12,8 @@ LOCAL_SRC_FILES := \
 LOCAL_C_INCLUDES += \
 	$(TOP)/frameworks/native/include/media/openmax \
 	$(TOP)/frameworks/av/include \
-	$(TOP)/frameworks/av/media/libstagefright
+	$(TOP)/frameworks/av/media/libstagefright \
+	$(TOP)/frameworks/av/media/libavextensions
 
 LOCAL_SHARED_LIBRARIES := \
 	libavcodec \
@@ -20,8 +21,13 @@ LOCAL_SHARED_LIBRARIES := \
 	libavutil \
 	libutils \
 	libcutils \
+	libmedia \
 	libstagefright \
+	libstagefright_omx \
 	libstagefright_foundation
+
+LOCAL_STATIC_LIBRARIES :=     \
+	libavextensions
 
 LOCAL_MODULE := libffmpeg_utils
 
@@ -33,6 +39,8 @@ LOCAL_MODULE_PATH_64 := $(TARGET_OUT_VENDOR)/lib64
 else
 LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)
 endif
+
+LOCAL_LDLIBS := -L$(SYSROOT)/usr/lib -llog
 
 LOCAL_CFLAGS += -D__STDC_CONSTANT_MACROS=1
 

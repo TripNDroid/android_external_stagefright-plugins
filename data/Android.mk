@@ -21,5 +21,6 @@ LOCAL_MODULE        := media_codecs_ffmpeg.xml
 LOCAL_MODULE_TAGS   := optional
 LOCAL_MODULE_CLASS  := ETC
 LOCAL_SRC_FILES     := media_codecs_ffmpeg.xml
+LOCAL_MODULE_PATH   := $(TARGET_OUT_VENDOR)/etc
 include $(BUILD_PREBUILT)
 

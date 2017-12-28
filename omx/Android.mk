@@ -14,6 +14,7 @@ LOCAL_C_INCLUDES += \
 	$(TOP)/frameworks/native/include/media/hardware \
 	$(TOP)/frameworks/native/include/media/openmax \
 	$(TOP)/frameworks/av/include \
+	$(TOP)/frameworks/av/media/libavextensions \
 	$(TOP)/frameworks/av/media/libstagefright \
 	$(TOP)/frameworks/av/media/libstagefright/include
 
@@ -24,9 +25,12 @@ LOCAL_SHARED_LIBRARIES := \
 	libavcodec		  \
 	libavformat		  \
 	libavutil		  \
+	libnativewindow   \
 	libffmpeg_utils   \
 	libswresample     \
+	libbinder         \
 	libswscale        \
+	libutils          \
 	libstagefright    \
 	libstagefright_foundation \
 	libstagefright_omx
@@ -45,6 +49,8 @@ endif
 ifneq ($(filter arm arm64,$(TARGET_ARCH)),)
 	LOCAL_CFLAGS += -Wno-psabi
 endif
+
+LOCAL_LDLIBS := -L$(SYSROOT)/usr/lib -llog
 
 LOCAL_CFLAGS += -D__STDC_CONSTANT_MACROS=1 -D__STDINT_LIMITS=1
 

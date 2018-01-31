@@ -18,7 +18,7 @@
 
 #define SOFT_FFMPEGAUDIO_H_
 
-#include "SimpleSoftOMXComponent.h"
+#include <omx/include/media/stagefright/omx/SimpleSoftOMXComponent.h>
 
 #ifndef __GNUC__
 #error "__GNUC__ cflags should be enabled"

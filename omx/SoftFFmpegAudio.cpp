@@ -21,6 +21,7 @@
 #include "SoftFFmpegAudio.h"
 #include "FFmpegComponents.h"
 
+#include <media/stagefright/ACodec.h>
 #include <media/stagefright/foundation/ADebug.h>
 #include <media/stagefright/foundation/hexdump.h>
 #include <media/stagefright/MediaDefs.h>
@@ -295,11 +296,11 @@ OMX_ERRORTYPE SoftFFmpegAudio::internalGetParameter(
                         break;
                 }
             }
-/*
+
             if (ACodec::getOMXChannelMapping(mAudioTgtChannels, profile->eChannelMapping) != OK) {
                 return OMX_ErrorNone;
             }
-*/
+
             profile->nChannels = mAudioTgtChannels;
             profile->nSamplingRate = mAudioTgtFreq;
 
